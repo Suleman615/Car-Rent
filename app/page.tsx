@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from "react";
 import {CarCard, CustomFilter, Hero, SearchBar} from "@/components";
 import {fetchCars} from "@/utils";
-import {manufacturers} from "@/constants";
+import {fuels, yearsOfProduction} from "@/constants";
 
 interface Params{
     searchParams:Object
@@ -28,8 +28,8 @@ export default async function Home({searchParams}:any) {
             <div className='mt-12 w-full flex justify-between items-center flex-wrap gap-5'>
                 <SearchBar/>
                 <div className='flex justify-start flex-wrap items-center gap-2'>
-                    <CustomFilter title='fuel'/>
-                    <CustomFilter title='year'/>
+                    <CustomFilter title='fuel' options={fuels}/>
+                    <CustomFilter title='year' options={yearsOfProduction}/>
                 </div>
             </div>
             {!isDataEmpty?(
