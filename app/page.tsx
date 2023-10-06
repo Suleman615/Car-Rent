@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 import {CarCard, CustomFilter, Hero, SearchBar, ShowMore} from "@/components";
 import {fetchCars} from "@/utils";
