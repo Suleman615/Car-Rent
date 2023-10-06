@@ -6,7 +6,7 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 const SearchButton=({buttonClasses}:{buttonClasses:string})=>(
-    <button type='submit' className={`-ml-3 z-10 ${buttonClasses}`}>
+    <button type='submit'  className={`-ml-3 z-10 ${buttonClasses}`}>
         <Image src='/magnifying-glass.svg' alt='magnifying glass' width={40} height={40} className='object-contain'/>
     </button>
 )
@@ -23,12 +23,12 @@ const SearchBar=()=>{
 
     const updateSearchParams =(model:string,manufacturer:string)=>{
         const searchParams = new URLSearchParams(window.location.search)
-        if (manufacturer) {searchParams.set('manufacturer', manufacturer)} else { searchParams.delete('manufacturer')}
         if (model) {searchParams.set('model', model)} else { searchParams.delete('model')}
+        if (manufacturer) {searchParams.set('manufacturer', manufacturer)} else { searchParams.delete('manufacturer')}
 
         const newPathName = `${window.location.pathname}?${searchParams.toString()}`
 
-        router.push(newPathName)
+        router.push(newPathName, { scroll: false})
 
     }
 

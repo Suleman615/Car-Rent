@@ -11,15 +11,17 @@ const CustomFilter=({title,options}:CustomFilterProps)=>{
     const router=useRouter()
     const  handleParamsUpdate=(e:{title:string,value:string})=>{
         const newPathname = updateSearchParams(title, e.value.toLowerCase())
-        router.push(newPathname)
+        router.push(newPathname,{scroll:false})
     }
 
     return(
-            <div className='w-fit'>
+            <div className='w-fit '>
+
                 <Listbox value={selected} onChange={(e)=> {
                     setSelected(e);
                     handleParamsUpdate(e)
                 }} >
+
                     <div className='relative w-fit z-10'>
                         <Listbox.Button className='relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border'>
                             <span className='block truncate'>{selected.title}</span>
@@ -39,6 +41,7 @@ const CustomFilter=({title,options}:CustomFilterProps)=>{
                                         className={({active})=>`relative cursor-default select-none py-2 px-4 ${active? 'bg-primary-blue text-white': 'text-gray-900'}`}
                                     >
                                         {({selected})=>(
+
                                             <span className={`block truncate ${selected?'font-medium':'font-normal'}`}>{option.title}</span>
                                         )}
                                     </Listbox.Option>

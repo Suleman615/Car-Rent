@@ -15,7 +15,7 @@ const CarCard=({car}:CarCardProps)=>{
 
     return(
 
-            <div className='flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl group'>
+            <div  className='flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl group'>
                 <div className='w-full flex justify-between items-start gap-2'>
                     <h2 className='text-[22px] leading-[26px] font-bold capitalize'>{make} {model}</h2>
                 </div>
@@ -29,7 +29,7 @@ const CarCard=({car}:CarCardProps)=>{
                     </span>
                 </p>
                 <div className='relative w-full h-40 my-3  object-contain'>
-                    <Image src={generateCarImageUrl(car)} alt='car Model' fill priority className='object-contain'/>
+                    <Image src={generateCarImageUrl(car)} alt='car Model' fill sizes="()" priority className='object-contain'/>
                 </div>
                 <div className='flex relative w-full mt-2'>
                     <div className='flex group-hover:invisible w-full justify-between text-gray'>
@@ -41,7 +41,7 @@ const CarCard=({car}:CarCardProps)=>{
                             <Image src='/tire.svg' width={20} height={20} alt='tire'/>
                             <p className='text-[14px]'>{drive.toUpperCase()}</p>
                         </div>
-                        <div className='flex flex-col justify-center items-center gap-2'>
+                        <div className='flex flex-col h-auto justify-center items-center gap-2'>
                             <Image src='/gas.svg' width={20} height={20} alt='gas'/>
                             <p className='text-[14px]'>{city_mpg}MPG</p>
                         </div>

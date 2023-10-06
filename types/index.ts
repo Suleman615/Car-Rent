@@ -47,3 +47,9 @@ export interface FilterProps{
     limit:number,
     model:string,
 }
+
+
+export interface ShoeMoreProps{
+    pageNumber:number,
+    isNext:boolean
+}

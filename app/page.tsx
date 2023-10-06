@@ -1,12 +1,10 @@
-import Image from 'next/image'
+'use client'
 import React from "react";
-import {CarCard, CustomFilter, Hero, SearchBar} from "@/components";
+import {CarCard, CustomFilter, Hero, SearchBar, ShowMore} from "@/components";
 import {fetchCars} from "@/utils";
 import {fuels, yearsOfProduction} from "@/constants";
 
-interface Params{
-    searchParams:Object
-}
+
 export default async function Home({searchParams}:any) {
     const allCars =await fetchCars({
         manufacturer: searchParams.manufacturer || '',
@@ -35,8 +33,12 @@ export default async function Home({searchParams}:any) {
             {!isDataEmpty?(
                 <section>
                     <div className='grid 2xl:grid-cols-4 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
-                        {allCars?.map((car)=>(<CarCard car={car}/>))}
+                        {allCars?.map((car)=>(<CarCard  car={car}/>))}
                     </div>
+                    <ShowMore
+                        pageNumber={(searchParams.limit || 10)/10}
+                        isNext={(searchParams || 10)>allCars.length}
+                    />
                 </section>
             ):(
                 <div className='mt-16 flex justify-center items-center flex-col gap-2'>
